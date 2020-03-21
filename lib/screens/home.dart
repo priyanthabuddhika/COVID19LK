@@ -57,7 +57,7 @@ class _HomeState extends State<Home> {
                 child: Container(
                   child: Column(children: <Widget>[
                     ListTile(
-                      contentPadding: EdgeInsets.fromLTRB(34.0, 24.0, 0.0, 0.0),
+                      contentPadding: EdgeInsets.fromLTRB(34.0, 14.0, 0.0, 0.0),
                       title: Text(
                         'COVID 19',
                         style: TextStyle(
@@ -106,10 +106,137 @@ class _HomeState extends State<Home> {
                             Row(
                               children: <Widget>[
                                 Expanded(
+                                  child: SizedBox(
+                                    height: 110.0,
+                                    child: Card(
+                                      color: Color.fromRGBO(142, 32, 41, 1),
+                                      margin: EdgeInsets.fromLTRB(
+                                          0.0, 0.0, 12.0, 12.0),
+                                      child: ListTile(
+                                        contentPadding: EdgeInsets.fromLTRB(
+                                            8.0, 8.0, 8.0, 0.0),
+                                        title: Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Text(
+                                            '${localData.newCases}',
+                                            style: TextStyle(
+                                              fontSize: 35.0,
+                                              color: Color.fromRGBO(
+                                                  255, 183, 0, 1),
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                            textAlign: TextAlign.center,
+                                          ),
+                                        ),
+                                        subtitle: Padding(
+                                          padding: const EdgeInsets.only(
+                                              bottom: 6.0),
+                                          child: Text(
+                                            'New Cases',
+                                            textAlign: TextAlign.center,
+                                            style: TextStyle(
+                                                fontSize: 14.0,
+                                                color: Color.fromRGBO(
+                                                    251, 251, 251, 1)),
+                                          ),
+                                        ),
+                                      ),
+                                      elevation: 4.0,
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(5.0)),
+                                    ),
+                                  ),
+                                ),
+                                Expanded(
+                                  child: SizedBox(
+                                    height: 110.0,
+                                    child: Card(
+                                      margin: EdgeInsets.fromLTRB(
+                                          0.0, 0.0, 0.0, 12.0),
+                                      child: ListTile(
+                                        contentPadding: EdgeInsets.fromLTRB(
+                                            8.0, 8.0, 8.0, 0.0),
+                                        title: Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Text(
+                                            '${localData.hospital}',
+                                            style: TextStyle(
+                                              fontSize: 35.0,
+                                              color: Color.fromRGBO(
+                                                  255, 183, 0, 1),
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                            textAlign: TextAlign.center,
+                                          ),
+                                        ),
+                                        subtitle: Padding(
+                                          padding: const EdgeInsets.only(
+                                              bottom: 6.0),
+                                          child: Text(
+                                            'Suspects',
+                                            textAlign: TextAlign.center,
+                                          ),
+                                        ),
+                                      ),
+                                      elevation: 4.0,
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(5.0)),
+                                    ),
+                                  ),
+                                ),
+                                Expanded(
+                                  child: SizedBox(
+                                    height: 110.0,
+                                    child: Card(
+                                      color: Color.fromRGBO(242, 32, 41, 1),
+                                      margin: EdgeInsets.fromLTRB(
+                                          12.0, 0.0, 0.0, 12.0),
+                                      child: ListTile(
+                                        contentPadding: EdgeInsets.fromLTRB(
+                                            8.0, 8.0, 8.0, 0.0),
+                                        title: Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Text(
+                                            '${localData.recovered}',
+                                            style: TextStyle(
+                                              fontSize: 35.0,
+                                              color: Color.fromRGBO(
+                                                  255, 183, 0, 1),
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                            textAlign: TextAlign.center,
+                                          ),
+                                        ),
+                                        subtitle: Padding(
+                                          padding: const EdgeInsets.only(
+                                              bottom: 6.0),
+                                          child: Text(
+                                            'Recovered',
+                                            textAlign: TextAlign.center,
+                                            style: TextStyle(
+                                                fontSize: 14.0,
+                                                color: Color.fromRGBO(
+                                                    251, 251, 251, 1)),
+                                          ),
+                                        ),
+                                      ),
+                                      elevation: 4.0,
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(5.0)),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Row(
+                              children: <Widget>[
+                                Expanded(
                                   child: Card(
-                                    color: Color.fromRGBO(142, 32, 41, 1),
                                     margin: EdgeInsets.fromLTRB(
-                                        0.0, 0.0, 12.0, 12.0),
+                                        0.0, 12.0, 12.0, 0.0),
                                     child: ListTile(
                                       contentPadding: EdgeInsets.fromLTRB(
                                           8.0, 8.0, 8.0, 0.0),
@@ -132,10 +259,6 @@ class _HomeState extends State<Home> {
                                         child: Text(
                                           'Total Cases',
                                           textAlign: TextAlign.center,
-                                          style: TextStyle(
-                                              fontSize: 14.0,
-                                              color: Color.fromRGBO(
-                                                  251, 251, 251, 1)),
                                         ),
                                       ),
                                     ),
@@ -148,46 +271,7 @@ class _HomeState extends State<Home> {
                                 Expanded(
                                   child: Card(
                                     margin: EdgeInsets.fromLTRB(
-                                        12.0, 0.0, 0.0, 12.0),
-                                    child: ListTile(
-                                      contentPadding: EdgeInsets.fromLTRB(
-                                          8.0, 8.0, 8.0, 0.0),
-                                      title: Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: Text(
-                                          '${localData.newCases}',
-                                          style: TextStyle(
-                                            fontSize: 35.0,
-                                            color:
-                                                Color.fromRGBO(255, 183, 0, 1),
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                          textAlign: TextAlign.center,
-                                        ),
-                                      ),
-                                      subtitle: Padding(
-                                        padding:
-                                            const EdgeInsets.only(bottom: 6.0),
-                                        child: Text(
-                                          'New Cases',
-                                          textAlign: TextAlign.center,
-                                        ),
-                                      ),
-                                    ),
-                                    elevation: 4.0,
-                                    shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(5.0)),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Row(
-                              children: <Widget>[
-                                Expanded(
-                                  child: Card(
-                                    margin: EdgeInsets.fromLTRB(
-                                        0.0, 12.0, 12.0, 0.0),
+                                        12.0, 12.0, 0.0, 0.0),
                                     child: ListTile(
                                       contentPadding: EdgeInsets.fromLTRB(
                                           8.0, 8.0, 8.0, 0.0),
@@ -219,41 +303,6 @@ class _HomeState extends State<Home> {
                                             BorderRadius.circular(5.0)),
                                   ),
                                 ),
-                                Expanded(
-                                  child: Card(
-                                    margin: EdgeInsets.fromLTRB(
-                                        12.0, 12.0, 0.0, 0.0),
-                                    child: ListTile(
-                                      contentPadding: EdgeInsets.fromLTRB(
-                                          8.0, 8.0, 8.0, 0.0),
-                                      title: Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: Text(
-                                          '${localData.recovered}',
-                                          style: TextStyle(
-                                            fontSize: 35.0,
-                                            color:
-                                                Color.fromRGBO(255, 183, 0, 1),
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                          textAlign: TextAlign.center,
-                                        ),
-                                      ),
-                                      subtitle: Padding(
-                                        padding:
-                                            const EdgeInsets.only(bottom: 6.0),
-                                        child: Text(
-                                          'Recovered',
-                                          textAlign: TextAlign.center,
-                                        ),
-                                      ),
-                                    ),
-                                    elevation: 4.0,
-                                    shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(5.0)),
-                                  ),
-                                ),
                               ],
                             ),
                           ],
@@ -270,22 +319,14 @@ class _HomeState extends State<Home> {
                         padding: const EdgeInsets.all(19.0),
                         child: Column(
                           children: <Widget>[
-                            ListTile(
-                              contentPadding:
-                                  EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 0.0),
-                              leading: Image.asset('images/global.png'),
-                              title: Text(
+                            Align(
+                              alignment: Alignment.topLeft,
+                              child: Text(
                                 'GLOBAL',
-                                textAlign: TextAlign.right,
                                 style: TextStyle(
                                     fontSize: 20.0,
                                     fontWeight: FontWeight.bold,
                                     color: Color.fromRGBO(101, 102, 102, 1)),
-                              ),
-                              subtitle: Text(
-                                'PATIENTS REPORT\n2020-03-20  17:03',
-                                textAlign: TextAlign.right,
-                                style: TextStyle(fontSize: 14.0),
                               ),
                             ),
                             SizedBox(height: 10.0),
@@ -295,16 +336,16 @@ class _HomeState extends State<Home> {
                                   child: Card(
                                     color: Color.fromRGBO(1, 59, 166, 1),
                                     margin: EdgeInsets.fromLTRB(
-                                        0.0, 0.0, 12.0, 12.0),
+                                        0.0, 0.0, 6.0, 6.0),
                                     child: ListTile(
                                       contentPadding: EdgeInsets.fromLTRB(
-                                          8.0, 8.0, 8.0, 0.0),
+                                          0.0, 0.0, 0.0, 0.0),
                                       title: Padding(
-                                        padding: const EdgeInsets.all(8.0),
+                                        padding: const EdgeInsets.all(1.0),
                                         child: Text(
                                           '245,913',
                                           style: TextStyle(
-                                            fontSize: 32.5,
+                                            fontSize: 15,
                                             color: Color.fromRGBO(
                                                 251, 251, 251, 1),
                                             fontWeight: FontWeight.bold,
@@ -319,7 +360,7 @@ class _HomeState extends State<Home> {
                                           'Total Cases',
                                           textAlign: TextAlign.center,
                                           style: TextStyle(
-                                              fontSize: 14.0,
+                                              fontSize: 10.0,
                                               color: Color.fromRGBO(
                                                   251, 251, 251, 1)),
                                         ),
@@ -334,16 +375,16 @@ class _HomeState extends State<Home> {
                                 Expanded(
                                   child: Card(
                                     margin: EdgeInsets.fromLTRB(
-                                        12.0, 0.0, 0.0, 12.0),
+                                        6.0, 0.0, 0.0, 6.0),
                                     child: ListTile(
                                       contentPadding: EdgeInsets.fromLTRB(
-                                          8.0, 8.0, 8.0, 0.0),
+                                          0.0, 0.0, 0.0, 0.0),
                                       title: Padding(
-                                        padding: const EdgeInsets.all(8.0),
+                                        padding: const EdgeInsets.all(1.0),
                                         child: Text(
                                           '26,111',
                                           style: TextStyle(
-                                            fontSize: 35.0,
+                                            fontSize: 15.0,
                                             color:
                                                 Color.fromRGBO(1, 59, 166, 1),
                                             fontWeight: FontWeight.bold,
@@ -357,6 +398,7 @@ class _HomeState extends State<Home> {
                                         child: Text(
                                           'New Cases',
                                           textAlign: TextAlign.center,
+                                          style: TextStyle(fontSize: 10.0),
                                         ),
                                       ),
                                     ),
@@ -366,23 +408,19 @@ class _HomeState extends State<Home> {
                                             BorderRadius.circular(5.0)),
                                   ),
                                 ),
-                              ],
-                            ),
-                            Row(
-                              children: <Widget>[
                                 Expanded(
                                   child: Card(
                                     margin: EdgeInsets.fromLTRB(
-                                        0.0, 12.0, 12.0, 0.0),
+                                        6.0, 0.0, 6.0, 0.0),
                                     child: ListTile(
                                       contentPadding: EdgeInsets.fromLTRB(
-                                          8.0, 8.0, 8.0, 0.0),
+                                          0.0, 0.0, 0.0, 0.0),
                                       title: Padding(
-                                        padding: const EdgeInsets.all(8.0),
+                                        padding: const EdgeInsets.all(1.0),
                                         child: Text(
                                           '10,048',
                                           style: TextStyle(
-                                            fontSize: 35.0,
+                                            fontSize: 15.0,
                                             color:
                                                 Color.fromRGBO(1, 59, 166, 1),
                                             fontWeight: FontWeight.bold,
@@ -396,6 +434,7 @@ class _HomeState extends State<Home> {
                                         child: Text(
                                           'Deaths',
                                           textAlign: TextAlign.center,
+                                          style: TextStyle(fontSize: 10.0),
                                         ),
                                       ),
                                     ),
@@ -408,16 +447,16 @@ class _HomeState extends State<Home> {
                                 Expanded(
                                   child: Card(
                                     margin: EdgeInsets.fromLTRB(
-                                        12.0, 12.0, 0.0, 0.0),
+                                        6.0, 0.0, 0.0, 0.0),
                                     child: ListTile(
                                       contentPadding: EdgeInsets.fromLTRB(
-                                          8.0, 8.0, 8.0, 0.0),
+                                          0.0, 0.0, 0.0, 0.0),
                                       title: Padding(
                                         padding: const EdgeInsets.all(8.0),
                                         child: Text(
                                           '88,138',
                                           style: TextStyle(
-                                            fontSize: 35.0,
+                                            fontSize: 15.0,
                                             color:
                                                 Color.fromRGBO(1, 59, 166, 1),
                                             fontWeight: FontWeight.bold,
@@ -431,6 +470,7 @@ class _HomeState extends State<Home> {
                                         child: Text(
                                           'Recovered',
                                           textAlign: TextAlign.center,
+                                          style: TextStyle(fontSize: 10.0),
                                         ),
                                       ),
                                     ),

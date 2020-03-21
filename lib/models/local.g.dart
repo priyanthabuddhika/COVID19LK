@@ -13,6 +13,7 @@ Local _$LocalFromJson(Map<String, dynamic> json) {
     deaths: json['data']['local_deaths'] as int,
     recovered: json['data']['local_recovered'] as int,
     date: json['data']['update_date_time'] as String,
+    hospital:  json['data']['local_total_number_of_individuals_in_hospitals'] as int,
   );
 }
 
@@ -22,4 +23,5 @@ Map<String, dynamic> _$LocalToJson(Local instance) => <String, dynamic>{
       'local_deaths': instance.deaths,
       'local_recovered': instance.recovered,
       'update_date_time': instance.date,
+      'local_total_number_of_individuals_in_hospitals': instance.hospital,
     };

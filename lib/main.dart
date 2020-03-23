@@ -1,4 +1,5 @@
-import 'package:covid19lk/screens/home.dart';
+
+import 'package:covid19lk/wrapper.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -9,7 +10,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Home(),
+      home: Wrapper(),
     );
   }
 }

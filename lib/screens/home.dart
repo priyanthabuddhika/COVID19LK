@@ -1,21 +1,28 @@
 import 'dart:convert';
-
+import 'package:covid19lk/models/destination.dart';
+import 'package:covid19lk/models/hospital.dart';
 import 'package:covid19lk/models/local.dart';
 import 'package:covid19lk/networking/hpbapi.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
+  const Home({ Key key, this.destination }) : super(key: key);
+  final Destination destination;
   @override
   _HomeState createState() => _HomeState();
 }
 
 class _HomeState extends State<Home> {
+
   Local localData;
   bool _busy = false;
+  HospitalList hospitalList = HospitalList();
+  
   @override
   void initState() {
     super.initState();
     _busy = true;
+    // Calling get health data function to retrieve json data from API
     getHealthData().then((val) {
       setState(() {
         _busy = false;
@@ -36,24 +43,23 @@ class _HomeState extends State<Home> {
     var localMap = jsonDecode(result);
     setState(() {
       localData = Local.fromJson(localMap);
-      print(localData.total);
+      hospitalList = HospitalList.fromJson(localMap['data']['hospital_data']);
+      print(hospitalList.hospitals[0].name);
+      _busy = false;
+      //print(localData.total);
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    if (_busy) {}
-    return _busy
-        ? Scaffold(
-            body: Container(
-              child: Center(
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: SafeArea(
+        child: _busy
+            ? Center(
                 child: CircularProgressIndicator(),
-              ),
-            ),
-          )
-        : Scaffold(
-            body: SafeArea(
-              child: SingleChildScrollView(
+              )
+            : SingleChildScrollView(
                 child: Container(
                   child: Column(children: <Widget>[
                     ListTile(
@@ -335,8 +341,8 @@ class _HomeState extends State<Home> {
                                 Expanded(
                                   child: Card(
                                     color: Color.fromRGBO(1, 59, 166, 1),
-                                    margin: EdgeInsets.fromLTRB(
-                                        0.0, 0.0, 6.0, 6.0),
+                                    margin:
+                                        EdgeInsets.fromLTRB(0.0, 0.0, 6.0, 6.0),
                                     child: ListTile(
                                       contentPadding: EdgeInsets.fromLTRB(
                                           0.0, 0.0, 0.0, 0.0),
@@ -374,8 +380,8 @@ class _HomeState extends State<Home> {
                                 ),
                                 Expanded(
                                   child: Card(
-                                    margin: EdgeInsets.fromLTRB(
-                                        6.0, 0.0, 0.0, 6.0),
+                                    margin:
+                                        EdgeInsets.fromLTRB(6.0, 0.0, 0.0, 6.0),
                                     child: ListTile(
                                       contentPadding: EdgeInsets.fromLTRB(
                                           0.0, 0.0, 0.0, 0.0),
@@ -410,8 +416,8 @@ class _HomeState extends State<Home> {
                                 ),
                                 Expanded(
                                   child: Card(
-                                    margin: EdgeInsets.fromLTRB(
-                                        6.0, 0.0, 6.0, 0.0),
+                                    margin:
+                                        EdgeInsets.fromLTRB(6.0, 0.0, 6.0, 0.0),
                                     child: ListTile(
                                       contentPadding: EdgeInsets.fromLTRB(
                                           0.0, 0.0, 0.0, 0.0),
@@ -446,8 +452,8 @@ class _HomeState extends State<Home> {
                                 ),
                                 Expanded(
                                   child: Card(
-                                    margin: EdgeInsets.fromLTRB(
-                                        6.0, 0.0, 0.0, 0.0),
+                                    margin:
+                                        EdgeInsets.fromLTRB(6.0, 0.0, 0.0, 0.0),
                                     child: ListTile(
                                       contentPadding: EdgeInsets.fromLTRB(
                                           0.0, 0.0, 0.0, 0.0),
@@ -489,7 +495,7 @@ class _HomeState extends State<Home> {
                   ]),
                 ),
               ),
-            ),
-          );
+      ),
+    );
   }
 }

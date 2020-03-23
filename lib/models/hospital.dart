@@ -21,16 +21,18 @@ class Hospital {
   @JsonKey(name: 'treatment_total')
   int treatmentTotal;
 
-
   Hospital(
-      {this.cumulativeLocal,
+      {this.id,
+      this.name,
+      this.cumulativeLocal,
       this.cumulativeForeign,
       this.cumulativeTotal,
       this.treatmentLocal,
       this.treatmentForeign,
       this.treatmentTotal});
 
-  factory Hospital.fromJson(Map<String, dynamic> json) => _$HospitalFromJson(json);
+  factory Hospital.fromJson(Map<String, dynamic> json) =>
+      _$HospitalFromJson(json);
   Map<String, dynamic> toJson() => _$HospitalToJson(this);
 }
 
@@ -39,9 +41,9 @@ class HospitalList {
   HospitalList({this.hospitals});
 
   factory HospitalList.fromJson(List<dynamic> json) {
-  return HospitalList(
-      hospitals: json
-          .map((e) => Hospital.fromJson(e as Map<String, dynamic>))
-          .toList());
-}
+    return HospitalList(
+        hospitals: json
+            .map((e) => Hospital.fromJson(e as Map<String, dynamic>))
+            .toList());
+  }
 }
